@@ -11,3 +11,7 @@ No contact to be performed to phones
 
 # Definition of Done
 For code to be committed there must be 2 reviews of the code by 2 random people in the team
+
+# Branching
+For each new feature a new branch should be created from a Dev branch.
+No pushing straight onto the main branch
