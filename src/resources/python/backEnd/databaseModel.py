@@ -1,3 +1,12 @@
+'''
+File: databaseModel.py
+Project: DevOps
+Author: Dylan Greene
+Created: 14/10/2026
+Copyright (c) 2026 Dylan Greene
+'''
+
+
 from pathlib import Path
 import sqlite3
 import hashlib

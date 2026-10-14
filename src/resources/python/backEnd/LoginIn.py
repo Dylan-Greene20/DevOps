@@ -1,3 +1,11 @@
+'''
+File: loginIn.py
+Project: DevOps
+Author: Dylan Greene
+Created: 14/10/2026
+Copyright (c) 2026 Dylan Greene
+'''
+
 import tkinter as tk
 from backEnd.databaseModel import singIn
 

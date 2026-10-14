@@ -1,3 +1,11 @@
+'''
+File: LoginInPage.py
+Project: DevOps
+Author: Dylan Greene
+Created: 14/10/2026
+Copyright (c) 2026 Dylan Greene
+'''
+h
 import tkinter as tk
 from backEnd.LoginIn import *
 root = tk.Tk()
