@@ -1,5 +1,7 @@
 # DevOps
-Repository For DevOps
+Repository For DevOps.
+System will be a viewed show lister.
+When a user finishes a show they can add the show to their list and rate it.
 
 # Team
 Dylan Greene - L00194748@atu.ie
@@ -10,7 +12,8 @@ Contact should only take place between the hours of 10am to 6pm.
 No contact to be performed to phones
 
 # Definition of Done
-For code to be committed there must be 2 reviews of the code by 2 random people in the team
+For code to be committed there must be a review by co-pilot as there is no one else on team.
+If multiple team members involved code review would require 2 random team members
 
 # Branching
 For each new feature a new branch should be created from a Dev branch.
