@@ -12,7 +12,7 @@ Contact should only take place between the hours of 10am to 6pm.
 No contact to be performed to phones
 
 # Definition of Done
-For code to be committed there must be a review by co-pilot as there is no one else on team.
+For code to be committed code reviews will be done by myself as I cannot use co-pilot for code reviews on my account.
 If multiple team members involved code review would require 2 random team members
 
 # Branching
