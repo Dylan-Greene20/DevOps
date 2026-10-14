@@ -1,0 +1,59 @@
+'''
+File: mockDatabase
+Project: DevOps
+Author: Dylan Greene
+Created: 14/10/2026
+Copyright (c) 2026 Dylan Greene
+'''
+
+
+import sqlite3
+import hashlib
+from pathlib import Path
+
+# Save the database in src/resources/databases/
+DB_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "databases"
+    / "mockDatabase.db"
+)
+
+def create_database():
+    # Create the databases folder if it doesn't exist
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL
+        )
+    """)
+
+    # Mock login credentials
+    username = "testuser"
+    password = "Password123!"
+
+    hashed_password = hashlib.sha256(
+        password.encode()
+    ).hexdigest()
+
+    cursor.execute("""
+        INSERT OR IGNORE INTO users (username, password)
+        VALUES (?, ?)
+    """, (username, hashed_password))
+
+    conn.commit()
+    conn.close()
+
+    print("Mock database created successfully.")
+    print("Database location:", DB_PATH)
+    print("Username:", username)
+    print("Password:", password)
+
+
+if __name__ == "__main__":
+    create_database()
