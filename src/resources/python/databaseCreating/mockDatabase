@@ -1,6 +1,7 @@
 '''
 File: mockDatabase
 Project: DevOps
+Ai Generated
 Author: Dylan Greene
 Created: 14/10/2026
 Copyright (c) 2026 Dylan Greene
@@ -32,6 +33,19 @@ def create_database():
             password TEXT NOT NULL
         )
     """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS shows (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        name TEXT NOT NULL,
+        seasons INTEGER NOT NULL,
+        channel TEXT NOT NULL,
+        creator TEXT NOT NULL,
+        rating INTEGER NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+""")
 
     # Mock login credentials
     username = "testuser"
