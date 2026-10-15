@@ -17,9 +17,6 @@ DB_PATH = (
     / "mockDatabase.db"
 )
 
-conn = sqlite3.connect(DB_PATH)
-cursor = conn.cursor()
-
 def singIn(username, password):
         # Find the user by username
     
