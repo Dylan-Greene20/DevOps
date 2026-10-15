@@ -43,3 +43,17 @@ def singIn(username, password):
     else:
         return False
 
+def getUserId(username):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute(
+        "SELECT id FROM users WHERE username = ?",
+        (username,)
+    )
+    result = cursor.fetchone()
+    conn.close()
+
+    if result is None:
+        return None
+
+    return result[0]

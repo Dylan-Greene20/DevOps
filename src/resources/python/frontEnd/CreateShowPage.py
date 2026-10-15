@@ -8,7 +8,7 @@ Copyright (c) 2026 Dylan Greene
 
 import tkinter as tk
 from backEnd.showInDatabase import createShow
-def createShowPage(root):
+def createShowPage(root, userID):
     for widget in root.winfo_children():
         widget.destroy()
 
@@ -45,7 +45,8 @@ def createShowPage(root):
         showSeasonsEntry.get(),
         channelWatchedEntry.get(),
         creatorEntry.get(),
-        rating.get()
+        rating.get(),
+        userID
     ))
     cancelButton = tk.Button(root, text="Cancel", command=lambda: cancelCreateShow(root))
     

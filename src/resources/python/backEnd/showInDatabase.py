@@ -17,14 +17,17 @@ DB_PATH = (
 )
 
 
-def createShow(name, seasons, channel, creator, rating):
+def createShow(name, seasons, channel, creator, rating, userId):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
+    
     cursor.execute(
-        "INSERT INTO shows (name, seasons, channel, creator, rating) VALUES (?, ?, ?, ?, ?)",
-        (name, seasons, channel, creator, rating)
-    )
-    conn.commit()
-    conn.close()
+            """
+            INSERT INTO shows
+                (user_id, name, seasons, channel, creator, rating)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (userId, name, seasons, channel, creator, rating)
+        )
 
     print(f"Show '{name}' created successfully with {seasons} seasons, channel '{channel}', creator '{creator}', and rating {rating}.")
