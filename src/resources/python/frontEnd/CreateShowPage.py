@@ -7,7 +7,7 @@ Copyright (c) 2026 Dylan Greene
 '''
 
 import tkinter as tk
-from backEnd.showInDatabase import createShow
+from backEnd.EditInDatabase import createShow
 def createShowPage(root, userID):
     for widget in root.winfo_children():
         widget.destroy()
@@ -28,7 +28,7 @@ def createShowPage(root, userID):
 
     ratingLabel = tk.Label(root, text='Rating', font=('calibre', 10, 'bold'))
 
-    rating = tk.IntVar(value=1)
+    rating = tk.IntVar(value=5)
 
     ratingInput = tk.Spinbox(
         root,
@@ -48,7 +48,7 @@ def createShowPage(root, userID):
         rating.get(),
         userID
     ))
-    cancelButton = tk.Button(root, text="Cancel", command=lambda: cancelCreateShow(root))
+    cancelButton = tk.Button(root, text="Cancel", command=lambda: cancel(root))
     
     showCreateLabel.grid(row=0, column=0)
     showNameLabel.grid(row=1, column=0)

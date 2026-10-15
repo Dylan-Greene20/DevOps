@@ -26,7 +26,7 @@ passwordInput.bind(
     "<KeyRelease>",
     lambda event: removeWarnings(1))
 
-signInButton = tk.Button(root, text="Log In", command=lambda: submit(username, password, root, passwordInput))
+signInButton = tk.Button(root, text="Log In", command=lambda: submit(username, password, root))
 exitButton = tk.Button(root, text="Exit", command=root.destroy)
 
 
