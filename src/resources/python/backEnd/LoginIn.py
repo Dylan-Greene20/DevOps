@@ -7,14 +7,15 @@ Copyright (c) 2026 Dylan Greene
 '''
 
 import tkinter as tk
-from backEnd.databaseModel import singIn, getUserId
+from backEnd.GetFromDatabase import singIn, getUserId
 from frontEnd.CreateShowPage import createShowPage
+from frontEnd.EditShowPage import editShowPage
 
 
 usernameWarning = None
 passwordWarning = None
 
-def submit(username, password, root, passwordInput):
+def submit(username, password, root):
     global usernameWarning, passwordWarning
 
     cleanUsername = username.get()
@@ -29,7 +30,8 @@ def submit(username, password, root, passwordInput):
     else:
         success = singIn(cleanUsername, cleanPassword)
         if success:
-            createShowPage(root, getUserId(cleanUsername))
+            #createShowPage(root, getUserId(cleanUsername))
+            editShowPage(root, 1)
         else:
             incorrectDetails = tk.Label(root, text = 'Username or password Incorrect', font=('calibre',8, 'bold'))
             incorrectDetails.grid(row=5,column=0)

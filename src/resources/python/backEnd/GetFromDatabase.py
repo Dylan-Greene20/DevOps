@@ -57,3 +57,26 @@ def getUserId(username):
         return None
 
     return result[0]
+
+def getShowDetails(id):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute(
+        "SELECT * FROM shows WHERE id = ?",
+        (id,)
+    )
+    result = cursor.fetchone()
+    conn.close()
+
+    if result is None:
+        return None
+
+    return {
+        "id": result[0],
+        "user_id": result[1],
+        "name": result[2],
+        "seasons": result[3],
+        "channel": result[4],
+        "creator": result[5],
+        "rating": result[6]
+    }
