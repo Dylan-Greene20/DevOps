@@ -10,6 +10,8 @@ import tkinter as tk
 from backEnd.GetFromDatabase import singIn, getUserId
 from frontEnd.CreateShowPage import createShowPage
 from frontEnd.EditShowPage import editShowPage
+from frontEnd.DeleteShowPage import deleteShowPage
+
 
 
 usernameWarning = None
@@ -31,7 +33,8 @@ def submit(username, password, root):
         success = singIn(cleanUsername, cleanPassword)
         if success:
             #createShowPage(root, getUserId(cleanUsername))
-            editShowPage(root, 1)
+            #editShowPage(root, 1)
+            deleteShowPage(root, 1)
         else:
             incorrectDetails = tk.Label(root, text = 'Username or password Incorrect', font=('calibre',8, 'bold'))
             incorrectDetails.grid(row=5,column=0)

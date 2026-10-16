@@ -25,16 +25,16 @@ def editShowPage(root, showID):
     showEditLabel = tk.Label(root, text='Edit Show', font=('calibre', 20, 'bold'))
 
     showNameLabel = tk.Label(root, text='Name', font=('calibre', 10, 'bold'))
-    showNameEntry = tk.Entry(root, textvariable=name, font=('calibre', 10, 'normal'))
+    showNameEntry = tk.Entry(root, textvariable=name, font=('calibre', 10, 'normal'), state='readonly')
 
     showSeasonsLabel = tk.Label(root, text='Seasons Amount', font=('calibre', 10, 'bold'))
-    showSeasonsEntry = tk.Entry(root, textvariable=seasons, font=('calibre', 10, 'normal'))
+    showSeasonsEntry = tk.Entry(root, textvariable=seasons, font=('calibre', 10, 'normal'), state='readonly')
 
     channelWatchedLabel = tk.Label(root, text='Channel Watched', font=('calibre', 10, 'bold'))
-    channelWatchedEntry = tk.Entry(root, textvariable=channel, font=('calibre', 10, 'normal'))
+    channelWatchedEntry = tk.Entry(root, textvariable=channel, font=('calibre', 10, 'normal'), state='readonly')
 
     creatorLabel = tk.Label(root, text='Creator', font=('calibre', 10, 'bold'))
-    creatorEntry = tk.Entry(root, textvariable=creator, font=('calibre', 10, 'normal'))
+    creatorEntry = tk.Entry(root, textvariable=creator, font=('calibre', 10, 'normal'), state='readonly')
 
     ratingLabel = tk.Label(root, text='Rating', font=('calibre', 10, 'bold'))
 
@@ -50,11 +50,6 @@ def editShowPage(root, showID):
 
     editShowButton = tk.Button(root, text="Edit Show", command=lambda: editShow(
         showID,
-        showNameEntry.get(),
-        showSeasonsEntry.get(),
-        channelWatchedEntry.get(),
-        creatorEntry.get(),
-        rating.get(),
     ))
     cancelButton = tk.Button(root, text="Cancel", command=lambda: cancel(root))
     
