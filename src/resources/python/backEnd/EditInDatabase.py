@@ -54,3 +54,17 @@ def editShow(showID, name, seasons, channel, creator, rating):
     conn.close()
 
     print(f"Show with ID '{showID}' updated successfully to name '{name}', {seasons} seasons, channel '{channel}', creator '{creator}', and rating {rating}.")
+
+def deleteShow(showID):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+        
+    cursor.execute(
+        "DELETE FROM shows WHERE id = ?",
+        (showID,)
+    )
+        
+    conn.commit()
+    conn.close()
+
+    print(f"Show with ID '{showID}' deleted successfully.")
