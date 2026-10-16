@@ -17,8 +17,7 @@ DB_PATH = (
 )
 
 
-def createShow(root, name, seasons, channel, creator, rating, userId):
-    from frontEnd.MainPage import createMainPage
+def createShow(name, seasons, channel, creator, rating, userId):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     
@@ -37,12 +36,8 @@ def createShow(root, name, seasons, channel, creator, rating, userId):
 
     print(f"Show '{name}' created successfully with {seasons} seasons, channel '{channel}', creator '{creator}', and rating {rating}.")
 
-    createMainPage(root, userId)  # Call createMainPage after creating the show
 
-
-def editShow(root, showID, name, seasons, channel, creator, rating, userId):
-    from frontEnd.MainPage import createMainPage
-
+def editShow(showID, name, seasons, channel, creator, rating):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     
@@ -59,10 +54,8 @@ def editShow(root, showID, name, seasons, channel, creator, rating, userId):
     conn.close()
 
     print(f"Show with ID '{showID}' updated successfully to name '{name}', {seasons} seasons, channel '{channel}', creator '{creator}', and rating {rating}.")
-    createMainPage(root, userId)  # Call createMainPage after creating the show
 
-def deleteShow(root,showID, userId):
-    from frontEnd.MainPage import createMainPage
+def deleteShow(showID):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
         
@@ -75,4 +68,3 @@ def deleteShow(root,showID, userId):
     conn.close()
 
     print(f"Show with ID '{showID}' deleted successfully.")
-    createMainPage(root, userId)  # Call createMainPage after creating the show

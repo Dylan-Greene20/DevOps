@@ -8,7 +8,6 @@ Copyright (c) 2026 Dylan Greene
 
 import tkinter as tk
 from backEnd.EditInDatabase import createShow
-from backEnd.Cancel import cancel
 def createShowPage(root, userID):
     for widget in root.winfo_children():
         widget.destroy()
@@ -42,7 +41,6 @@ def createShowPage(root, userID):
     ratingInput.grid(row=8, column=0)
 
     createShowButton = tk.Button(root, text="Create Show", command=lambda: createShow(
-        root,
         showNameEntry.get(),
         showSeasonsEntry.get(),
         channelWatchedEntry.get(),
@@ -50,7 +48,7 @@ def createShowPage(root, userID):
         rating.get(),
         userID
     ))
-    cancelButton = tk.Button(root, text="Cancel", command=lambda: cancel(root, userID))
+    cancelButton = tk.Button(root, text="Cancel", command=lambda: cancel(root))
     
     showCreateLabel.grid(row=0, column=0)
     showNameLabel.grid(row=1, column=0)
