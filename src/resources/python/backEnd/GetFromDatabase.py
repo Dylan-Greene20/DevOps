@@ -80,3 +80,27 @@ def getShowDetails(id):
         "creator": result[5],
         "rating": result[6]
     }
+
+def getShowsForUser(user_id):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute(
+        "SELECT * FROM shows WHERE user_id = ?",
+        (user_id,)
+    )
+    results = cursor.fetchall()
+    conn.close()
+
+    shows = []
+    for result in results:
+        shows.append({
+            "id": result[0],
+            "user_id": result[1],
+            "name": result[2],
+            "seasons": result[3],
+            "channel": result[4],
+            "creator": result[5],
+            "rating": result[6]
+        })
+
+    return shows
