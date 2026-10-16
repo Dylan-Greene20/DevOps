@@ -35,7 +35,6 @@ def createShow(root, name, seasons, channel, creator, rating, userId):
     conn.close()
 
 
-    print(f"Show '{name}' created successfully with {seasons} seasons, channel '{channel}', creator '{creator}', and rating {rating}.")
 
     createMainPage(root, userId)  # Call createMainPage after creating the show
 
@@ -58,7 +57,6 @@ def editShow(root, showID, name, seasons, channel, creator, rating, userId):
     conn.commit()
     conn.close()
 
-    print(f"Show with ID '{showID}' updated successfully to name '{name}', {seasons} seasons, channel '{channel}', creator '{creator}', and rating {rating}.")
     createMainPage(root, userId)  # Call createMainPage after creating the show
 
 def deleteShow(root,showID, userId):
@@ -74,5 +72,4 @@ def deleteShow(root,showID, userId):
     conn.commit()
     conn.close()
 
-    print(f"Show with ID '{showID}' deleted successfully.")
     createMainPage(root, userId)  # Call createMainPage after creating the show
