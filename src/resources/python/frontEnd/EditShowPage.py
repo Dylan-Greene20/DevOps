@@ -9,9 +9,8 @@ Copyright (c) 2026 Dylan Greene
 import tkinter as tk
 from backEnd.EditInDatabase import editShow
 from backEnd.GetFromDatabase import getShowDetails
-from backEnd.Cancel import cancel
 
-def editShowPage(root, showID, userId):
+def editShowPage(root, showID):
     for widget in root.winfo_children():
         widget.destroy()
     showDetails = getShowDetails(showID)
@@ -26,16 +25,16 @@ def editShowPage(root, showID, userId):
     showEditLabel = tk.Label(root, text='Edit Show', font=('calibre', 20, 'bold'))
 
     showNameLabel = tk.Label(root, text='Name', font=('calibre', 10, 'bold'))
-    showNameEntry = tk.Entry(root, textvariable=name, font=('calibre', 10, 'normal'))
+    showNameEntry = tk.Entry(root, textvariable=name, font=('calibre', 10, 'normal'), state='readonly')
 
     showSeasonsLabel = tk.Label(root, text='Seasons Amount', font=('calibre', 10, 'bold'))
-    showSeasonsEntry = tk.Entry(root, textvariable=seasons, font=('calibre', 10, 'normal'))
+    showSeasonsEntry = tk.Entry(root, textvariable=seasons, font=('calibre', 10, 'normal'), state='readonly')
 
     channelWatchedLabel = tk.Label(root, text='Channel Watched', font=('calibre', 10, 'bold'))
-    channelWatchedEntry = tk.Entry(root, textvariable=channel, font=('calibre', 10, 'normal'))
+    channelWatchedEntry = tk.Entry(root, textvariable=channel, font=('calibre', 10, 'normal'), state='readonly')
 
     creatorLabel = tk.Label(root, text='Creator', font=('calibre', 10, 'bold'))
-    creatorEntry = tk.Entry(root, textvariable=creator, font=('calibre', 10, 'normal'))
+    creatorEntry = tk.Entry(root, textvariable=creator, font=('calibre', 10, 'normal'), state='readonly')
 
     ratingLabel = tk.Label(root, text='Rating', font=('calibre', 10, 'bold'))
 
@@ -50,16 +49,9 @@ def editShowPage(root, showID, userId):
     ratingInput.grid(row=8, column=0)
 
     editShowButton = tk.Button(root, text="Edit Show", command=lambda: editShow(
-        root,
         showID,
-        name.get(),
-        seasons.get(),
-        channel.get(),
-        creator.get(),
-        rating.get(),
-        userId
     ))
-    cancelButton = tk.Button(root, text="Cancel", command=lambda: cancel(root, userId))
+    cancelButton = tk.Button(root, text="Cancel", command=lambda: cancel(root))
     
     showEditLabel.grid(row=0, column=0)
     showNameLabel.grid(row=1, column=0)
