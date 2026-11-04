@@ -20,8 +20,9 @@ DB_PATH = (
 def createShow(name, seasons, channel, creator, rating, userId):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    
-    cursor.execute(
+
+    try:
+        cursor.execute(
             """
             INSERT INTO shows
                 (user_id, name, seasons, channel, creator, rating)
@@ -30,13 +31,22 @@ def createShow(name, seasons, channel, creator, rating, userId):
             (userId, name, seasons, channel, creator, rating)
         )
 
-    conn.commit()
-    conn.close()
+        conn.commit()
 
+        print(
+            f"Show '{name}' created successfully with {seasons} seasons, "
+            f"channel '{channel}', creator '{creator}', and rating {rating}."
+        )
 
-    print(f"Show '{name}' created successfully with {seasons} seasons, channel '{channel}', creator '{creator}', and rating {rating}.")
+        return True
 
+    except sqlite3.Error as e:
+        print(f"Error creating show: {e}")
+        conn.rollback()
+        return False
 
+    finally:
+        conn.close()
 def editShow(showID, name, seasons, channel, creator, rating):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
